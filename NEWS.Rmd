@@ -1,0 +1,16 @@
+---
+title: "NEWS"
+author: "Wen Qu"
+date: "9/10/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Version 1.0.0, 09/10/2019:
+
+This is a package to generate multivariate non-normal random numbers.
+
+In this first version, it contains functions to get random numbers according to multivariate sknewness and kurtosis, marginal skewness and kurtosis, and a measures' checker.

@@ -1,0 +1,35 @@
+---
+title: "Introduction to mnonr"
+author: "Wen Qu and Zhiyong Zhang"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to mnonr}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+bibliography: non-normal.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Non-normal data is everywhere. In order to test the influence of the non-normality on your model, you may what to generate some non-normal data first. The existing methods of generating multivariate non-normal data typically create data according to specific univariate marginal measures such as the univariate skewness and kurtosis, like the widely-used Vale and Maurelli's method[@vale83], but not multivariate measures such as Mardia’s skewness and kurtosis [@mardia70]. We create a new method of generating multivariate non-normal data with given multivariate skewness and kurtosis [@qu19]. 
+
+The goal of mnonr package is to give you a simple and quick way to generate multivariate non-normal data with pre-specified multivariate measures (skewness and kurtosis).
+
+The package consists of three functions: 
+
+* __mnonr__: a function that can generate multivariate data with pre-specified multivariate skewness and kurtosis;
+
+* __unonr__: a function that can generate multivariate data with pre-specified marginal skewness and kurtosis;
+
+* __mardia__: a function that can check univariate and multivariate skewness and kurtosis.
+
+The functions are easy to use. As for __mnonr__, along with multivariate skewness and kurtosis, you can also specify sample size, number of variables, covariance matrix, and initial start values. The initial start values of a vector with 3 numbers for polynomial coefficients' (b,c,d) (the default setting is (0.9,0.4,0)) will yield different coefficient sets which could affect the multivariate skewness and kurtosis (more details are in the paper @qu19). We recommend that users should try with different start values in data simulation.
+
+The __unonr__ function is copied from __mvrnonnorm__ function in the *semTools* package [@semtools].
+
+The __mardia__ can return the result of both marginal and multivariate skewness and kurtosis.
+
+# Reference
+

@@ -1,0 +1,20 @@
+---
+title: "README"
+author: "Wen Qu"
+date: "9/10/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The **mnonr** package is a multivariate data generator which can be used to create non-normal random numbers.
+
+The package consists of three functions: 
+
+* __mnonr__: a function that can generate multivariate data with pre-specified multivariate skewness and kurtosis;
+
+* __unonr__: a function that can generate multivariate data with pre-specified marginal skewness and kurtosis;
+
+* __mardia__: a function that can check univariate and multivariate skewness and kurtosis.
