@@ -36,10 +36,13 @@ mnonr <- function(n, p, ms, mk, Sigma, initial=NULL){
   #Multivariate skewness and kurtosis range
   sug_mk = 1.641 * ms + p * (p + 0.774)
   sug_ms = (mk - p * (p + 0.774)) / 1.641
+  sug_min_mk = p * (p + 0.774)
   if (ms < 0)
-    stop(cat('The multivariate skewness must be non-negtive.'))
-  if(!(mk >= 1.641 * ms + p * (p + 0.774)))
-    stop(cat("The multivariate skewness and kurtosis must follow the range of:  MK>= 1.641*MS + p*(p + 0.774), where p is the number of variables.\n For your reference:\n For the given p and multivariate skewness, the kurtosis must be no less than",sug_mk,".\n For the given p and multivariate kurtosis, the skewness must be no more than",sug_ms,'.'))
+    stop(cat('The multivariate skewness must be non-negtive.\n'))
+  if(mk < p * (p + 0.774))
+    stop(cat('The minimun multivariate kurtosis in your setting should be',sug_min_mk,'.\n'))
+  else if(!(mk >= 1.641 * ms + p * (p + 0.774)))
+    stop(cat("The multivariate skewness and kurtosis must follow the range of:  MK>= 1.641*MS + p*(p + 0.774) and MS cannot be negative, where p is the number of variables.\n For your reference:\n For the given p and multivariate skewness, the kurtosis must be no less than",sug_mk,".\n For the given p and multivariate kurtosis, the skewness must be no more than",sug_ms,'.\n'))
 
   multouni = function(p, ms, mk){
     beta1 = ms
